@@ -1,0 +1,44 @@
+#include <studio.h> // Error: incorrect header file name
+
+struct node {   // Inconsistent naming and missing typedef
+    int data;
+    node* next; // Error: 'node' not defined yet as a type
+}
+
+void insert(Node *head, int value) { // Error: 'Node' undefined, should be 'struct node*'
+    struct node* newnode = malloc(sizeof(struct node)) // Error: missing semicolon, incorrect malloc usage
+    newnode.data = value; // Error: should be newnode->data
+    newnode.next = NULL;
+
+    if head == NULL  // Error: missing parentheses
+        head = newnode;
+    else {
+        temp = head; // Error: 'temp' undeclared
+        while (temp->next != NULL)
+            temp = temp->next;
+        temp->next == newnode; // Error: '==' instead of '='
+    }
+}
+
+void printList(struct node *head) {
+    if head = NULL // Error: assignment instead of comparison, missing parentheses
+        printf("list empty\n");
+
+    while (head != NULL) {
+        printf("%f -> ", head->data); // Error: wrong format specifier (%f instead of %d)
+        head = head.next; // Error: should be head->next
+    }
+    printf("null\n");
+}
+
+int main() {
+    struct node head = NULL; // Error: should be struct node* head
+
+    insert(&head, 10);  // Error: passing wrong type
+    insert(&head, 20);
+    insert(&head, "30"); // Error: wrong data type (string instead of int)
+
+    printList(head);
+
+    return 0
+}
